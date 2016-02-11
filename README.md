@@ -1,7 +1,5 @@
 # Treasure Hunt
-Java-based path finding simulation which utilizes a MySQL database backend; the final phase of a three-phased project for my advanced data
-structures course, it was developed as a team with classmate Kyle Leighton, with each of us contributing equally to design, development 
-and testing, with the majority of database functionality being implemented by me (Benjamin).
+Java-based path finding simulation which utilizes a MySQL database backend; the final phase of a three-phased project for my advanced data structures course, it was developed as a team with classmate Kyle Leighton, with each of us contributing equally to design, development and testing, with the majority of database functionality being implemented by me (Benjamin).
 
 The general application design consists of the following Java classes:
 
@@ -13,7 +11,7 @@ the MySQL POINT spatial data type for the “place” key value in all tables, a
 Waypoints and Points.
 
 * `LeightonPlotkinP3.java`:
-This is our main class; it extends SimFrame and holds our main method.  In this class we instantiate a HashMap of our terrain and populate it with WayPoints (using Point values for the keys).  At the start of each simulation, we DROP all live database tables (if extant) and CREATE them as copies of the “iTables” (initial tables) using the LIKE operator, and load the iTable data into the live tables using commands of the form INSERT <table> SELECT * FROM <iTable>.  We retained the implementation of our A* path finding algorithm, which uses a PriorityQueue of Nodes for the Open Set (least cost Node at the head of the queue) and a HashMap of Nodes for the Closed Set, and which builds a Stack of Nodes for each Player’s path by traversing back through the Closed Set of Nodes, from the goal Node to the start Node, using each Node’s predecessor Point as a key to retrieve the previous Node.  However, all Treasure, Map and City info, as well as competing Player info, is pulled from the database via MySQL queries (see PlayerP3 section for details).
+This is our main class; it extends SimFrame and holds our main method.  In this class we instantiate a HashMap of our terrain and populate it with WayPoints (using Point values for the keys).  At the start of each simulation, we DROP all live database tables (if extant) and CREATE them as copies of the “iTables” (initial tables) using the LIKE operator, and load the iTable data into the live tables using commands of the form `INSERT <table> SELECT * FROM <iTable>`.  We retained the implementation of our A* path finding algorithm, which uses a PriorityQueue of Nodes for the Open Set (least cost Node at the head of the queue) and a HashMap of Nodes for the Closed Set, and which builds a Stack of Nodes for each Player’s path by traversing back through the Closed Set of Nodes, from the goal Node to the start Node, using each Node’s predecessor Point as a key to retrieve the previous Node.  However, all Treasure, Map and City info, as well as competing Player info, is pulled from the database via MySQL queries (see PlayerP3 section for details).
 
 * `PlayerP3.java`:
 This class represents our game’s Players; it extends Bot (an instructor-provided class).  Our Players have id, place, goal, strength, 
