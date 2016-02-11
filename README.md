@@ -32,4 +32,4 @@ points on our map.  Each Node has two Point attributes – one for its own posit
 
 In addition to the JDBC API and a MySQL database built to the project specifications, we used the following Java Collections Framework 
 classes and interface to implement this final project phase:
-`ArrayList`, `Comparable`, `HashMap`, `Iterator`, `PriorityQueue`, `Stack`.
+`ArrayList`, `Comparable`, `HashMap`, `Iterator`, `PriorityQueue`, and `Stack`.
